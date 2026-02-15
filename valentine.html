@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>For You ❤️</title>
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(to bottom right, #ffd6e8, #ffc0cb);
+        font-family: Arial, sans-serif;
+        overflow: hidden;
+    }
+
+    .card {
+        background: white;
+        padding: 40px;
+        border-radius: 20px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        width: 320px;
+        transition: 0.3s;
+    }
+
+    h2 {
+        color: #ff2e7a;
+        margin-bottom: 10px;
+    }
+
+    p {
+        color: #444;
+        margin-bottom: 20px;
+    }
+
+    button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 14px;
+        margin: 5px;
+        transition: 0.3s;
+    }
+
+    #yesBtn {
+        background: #ff2e7a;
+        color: white;
+    }
+
+    #noBtn {
+        background: #eee;
+    }
+</style>
+</head>
+<body>
+
+<div class="card" id="card">
+    <h2>Hey ❤️</h2>
+    <p id="message">I made something special for you.<br><br>Will you be mine forever?</p>
+    
+    <button id="yesBtn" onclick="sayYes()">YES ❤️</button>
+    <button id="noBtn" onclick="shrinkNo()">NO 😢</button>
+</div>
+
+<script>
+let noClickCount = 0;
+
+function shrinkNo() {
+    const noBtn = document.getElementById("noBtn");
+    noClickCount++;
+
+    if (noClickCount < 4) {
+        let size = 1 - (noClickCount * 0.2);
+        noBtn.style.transform = "scale(" + size + ")";
+    } else {
+        noBtn.style.display = "none";
+    }
+}
+
+function sayYes() {
+    document.getElementById("message").innerHTML = 
+        "Gotcha 😄❤️<br><br>I knew you would say YES!<br><br>Love you forever 💕";
+    
+    document.getElementById("yesBtn").style.display = "none";
+    document.getElementById("noBtn").style.display = "none";
+}
+</script>
+
+</body>
+</html>
